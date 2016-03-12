@@ -47,16 +47,16 @@ function theme_lds_widgets_init() {
 	'after_title'   => '</h3>',
     ));
           
-    register_sidebar(    array(
-        'name' => __( 'Destacados Inicio 3', 'theme-lds-home-3' ),
-        'id' => 'home_3',
-        'description' => __( 'Contenido para inicio 3', 'theme-lds-home-3' ),
-        'class'         => 'home-featured-3',
-        'before_widget' => '',
-	'after_widget'  => '',
-	'before_title'  => '<h3>',
-	'after_title'   => '</h3>',
-    ));
+//    register_sidebar(    array(
+//        'name' => __( 'Destacados Inicio 3', 'theme-lds-home-3' ),
+//        'id' => 'home_3',
+//        'description' => __( 'Contenido para inicio 3', 'theme-lds-home-3' ),
+//        'class'         => 'home-featured-3',
+//        'before_widget' => '',
+//	'after_widget'  => '',
+//	'before_title'  => '<h3>',
+//	'after_title'   => '</h3>',
+//    ));
 }
 add_action( 'widgets_init', 'theme_lds_widgets_init' );
 
@@ -66,3 +66,22 @@ function login_errors_message() {
 	header('Location: '.home_url().'/?login_error=1');
 }
 add_filter('login_errors', 'login_errors_message');
+
+
+// EVENTOS
+
+function create_posttype() {
+  register_post_type( 'eventos',
+    array(
+      'labels' => array(
+        'name' => __( 'Eventos' ),
+        'singular_name' => __( 'Evento' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array('slug' => 'eventos'),
+    )
+  );
+}
+
+add_action( 'init', 'create_posttype' );
