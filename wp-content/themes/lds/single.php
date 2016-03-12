@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php include "modals.php"; ?>
-
+single
 <div class="row">
 </div>
 <div class="row">
@@ -14,6 +14,18 @@
         ?>
     </div>
     <div class="col-lg-8">
+        <?php
+        $args = array('post_type' => 'eventos', 'posts_per_page' => 10);
+        $loop = new WP_Query($args);
+        while ($loop->have_posts()) : $loop->the_post();
+            echo '<a href="'.get_the_permalink().'">'.get_the_title().'</a>';
+            echo '<div class="entry-content">';
+            
+            the_content();
+            echo '</div>';
+        endwhile;
+        ?>
+
         <?php
         if (is_active_sidebar('home_2')) : dynamic_sidebar('home_2');
         endif;

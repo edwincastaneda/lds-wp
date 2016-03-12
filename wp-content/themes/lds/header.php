@@ -10,6 +10,9 @@
         <link rel="icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico">
 
         <title><?php bloginfo('name'); ?></title>
+        <link href="<?php echo get_stylesheet_directory_uri(); ?>/style.css" rel="stylesheet">
+        
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Catamaran:400,300' rel='stylesheet' type='text/css'>
         <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/starter-template.css" rel="stylesheet">
@@ -18,6 +21,7 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <link href="<?php echo get_stylesheet_directory_uri(); ?>/less/tema-lds.css" rel="stylesheet">
+        
         <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
         <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
         <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/ie-emulation-modes-warning.js"></script>

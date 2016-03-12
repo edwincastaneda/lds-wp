@@ -85,3 +85,26 @@ function create_posttype() {
 }
 
 add_action( 'init', 'create_posttype' );
+
+
+// BASE DE DATOS
+
+function create_db() {
+	global $wpdb;
+  	$version = get_option( 'my_plugin_version', '1.0' );
+	$charset_collate = $wpdb->get_charset_collate();
+	$table_name = $wpdb->prefix . 'caracteristicas_usuario';
+
+	$sql = "CREATE TABLE $table_name (
+		id mediumint(9) NOT NULL AUTO_INCREMENT,
+		post_id mediumint(9) NOT NULL,
+		user_id mediumint(9) NOT NULL,
+		UNIQUE KEY id (id)
+	) $charset_collate;";
+
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	dbDelta( $sql );
+}
+
+
+add_action("after_switch_theme", "create_db");
